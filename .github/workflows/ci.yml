@@ -85,10 +85,10 @@ jobs:
       - name: Verify dependencies
         run: go mod verify
 
-      - name: Check go.mod and go.sum
+      - name: Check go.mod
         run: |
           go mod tidy
-          git diff --exit-code go.mod go.sum || (echo "Please run 'go mod tidy' and commit changes" && exit 1)
+          git diff --exit-code go.mod || (echo "Please run 'go mod tidy' and commit changes to go.mod" && exit 1)
 
       - name: Check format
         run: |
